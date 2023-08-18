@@ -47,11 +47,11 @@ typedef struct {
     
     if (version == 5) {
         int section12Offset <format=hex>;
-        int section12Count; Assert(section12Count <= 2); // If these fail please tell me
+        int section12Count; Assert(section12Count <= 3); // If these fail please tell me
         int section13Offset <format=hex>;
-        int section13Count; Assert(section13Count <= 2);
+        int section13Count; Assert(section13Count <= 3);
         int section14Offset <format=hex>;
-        int section14Count; Assert(section14Count == 0);
+        int section14Count; Assert(section14Count == 0 || section14Count == 1);
         int unk88; Assert(unk88 == 0);
         int unk8C; Assert(unk8C == 0);
     }
@@ -101,7 +101,7 @@ typedef struct {
 
 
 typedef struct {
-    short unk00; Assert(unk00 == 11);
+    short unk00; Assert(unk00 == 11 || unk00 == 10 || unk00 == 8);
     byte unk01; Assert(unk01 == 0);
     byte unk02; Assert(unk02 == 1);
     int unk04 <fgcolor=cLtYellow, hidden=true>; Assert(unk04 == 0);
@@ -119,7 +119,7 @@ typedef struct {
     int unk30 <fgcolor=cLtYellow, hidden=true>; Assert(unk30 == 0);
     int unk34 <fgcolor=cLtYellow, hidden=true>; Assert(unk34 == 0);
 
-    int unk38 <format=hex>; Assert(unk38 == 0x100FFFC || unk38 == 0x100FFFD || unk38 == 0x100FFFF);
+    int unk38 <format=hex>; Assert(unk38 == 0x100FFFC || unk38 == 0x100FFFD || unk38 == 0x100FFFE || unk38 == 0x100FFFF);
     int unk3C <fgcolor=cLtYellow, hidden=true>; Assert(unk3C == 0);
     int unk40; Assert(unk40 == 0 || unk40 == 1);
     int unk44 <fgcolor=cLtYellow, hidden=true>; Assert(unk44 == 0);
